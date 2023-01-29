@@ -9,6 +9,7 @@ use External\Bar\Exceptions\ServiceUnavailableException as BarException;
 use External\Baz\Movies\MovieService as BazService;
 use External\Foo\Movies\MovieService as FooService;
 use Cache;
+use Illuminate\Support\Arr;
 
 class MovieService
 {
@@ -35,7 +36,7 @@ class MovieService
             }
         }
 
-        return array_values($this->titles);
+        return Arr::flatten(array_values($this->titles));
 
     }
 
